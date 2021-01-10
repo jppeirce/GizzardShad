@@ -1,5 +1,4 @@
 ## IPM for Gizzard Shad (Spring 2021)
-
 library(tidyverse)  #used to make pretty graphs
 library(drc) # used for logit model fitting
 
