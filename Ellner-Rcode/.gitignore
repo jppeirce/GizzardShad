@@ -1,0 +1,11 @@
+.DS_Store
+
+.Rproj.user
+.Rapp.history
+.Rhistory
+
+*.RData
+*.Rproj
+
+*.eps
+

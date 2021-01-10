@@ -1,0 +1,249 @@
+% !TEX TS-program = pdflatex
+% The line above tells TeXShop to use the latex -> dvi -> distiller 
+% path to produce the pdf. 
+
+\documentclass[12pt]{article}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{courier,type1cm,array}
+\usepackage{makeidx,graphicx,multicol}
+\usepackage[bottom]{footmisc} % places footnotes at page bottom
+\usepackage{natbib,float}
+\usepackage[vmargin=1in,hmargin=1in]{geometry}
+
+
+% allows compilation with pdflatex, under Windows 
+\usepackage{epstopdf}
+
+% Coloring of R code listings
+\usepackage[formats]{listings}
+\usepackage{color}
+\definecolor{mygreen}{rgb}{0.1,0.5,0.1}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{mygrey}{rgb}{0.3,0.3,0.1}
+\lstset{
+language=R,
+otherkeywords={data.frame},
+basicstyle=\normalsize\ttfamily, 
+commentstyle=\normalsize\ttfamily,
+keywordstyle=\normalsize\ttfamily,
+stringstyle=\color{mymauve}, 
+commentstyle=\color{mygreen},
+keywordstyle=\color{blue},
+showstringspaces=false, xleftmargin=2.5ex,
+columns=flexible,
+literate={~}{{$\sim \; \; $}}1,
+alsodigit={\.,\_},
+deletekeywords={on,by,data,R,Q,mean,var,sd,log,family,na,options,q,weights,effects,matrix,nrow,ncol,wt,fix,distance},
+}
+\lstset{escapeinside={(*}{*)}} 
+
+\lstdefineformat{Rpretty}{
+	; = \space,
+	\, = [\ \,\]]\string\space,
+	<- = [\ ]\space\string\space,
+	\= = [\ ]\space\string\space}
+
+\usepackage[compact]{titlesec} 
+\usepackage{enumitem}
+\setlist{leftmargin=0.75cm}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% reduce white space above and below verbatim text blocks
+\usepackage{etoolbox}
+\makeatletter
+\preto{\@verbatim}{\topsep=0.5pt \partopsep=0.5pt }
+\makeatother
+
+% let figs,boxes etc. occupy most of a page near where they
+% appear in the source file, instead of getting pushed to
+% the chapter's end. 
+\renewcommand{\topfraction}{0.9}	
+\renewcommand{\bottomfraction}{0.9}	
+\renewcommand{\textfraction}{0.07}	
+\renewcommand{\floatpagefraction}{0.85}	
+% floatpagefraction MUST be less than topfraction
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4} 	
+
+% Define Box environment for numbered boxes. 
+\newcounter{box}
+\newcommand{\boxnumber}{\addtocounter{box}{1} \thebox \thinspace}
+
+\floatstyle{boxed}
+\newfloat{Box}{tcph}{box}[section]
+\numberwithin{Box}{section}
+
+% A few shortcuts
+% Define \z so that \z_0 and z'_0 have the same kerning for _0. 
+\def\z{z^{}}
+\def\Z{\mathbf{Z}}
+\def\N{\mathbf{N}}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ba}{\begin{equation} \begin{aligned}}
+\newcommand{\ea}{\end{aligned} \end{equation}}
+
+\makeindex
+
+\usepackage[scaled=0.9]{zi4}
+\usepackage{textcomp}
+
+
+\linespread{1.2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% End of the preamble 
+ 
+\begin{document}
+
+\author{Stephen P. Ellner, Dylan Z. Childs and Mark Rees}
+\title{Errata for \\ \emph{Data-driven Modeling of Structured Populations: 
+A Practical Guide to the Integral Projection Model}} 
+
+\date{Last update: \today} 
+
+\maketitle
+
+\paragraph{Page 12:} We think that the statement about ``piecewise continuous'' in the footnote is true, 
+but at least one proof in the book isn't valid regardless of what the curves are that divide $\Z^2$ into 
+subregions. A slightly less general definition, which should be sufficient for any applications, is as follows. 
+For the basic model where the individual-level state space $\Z$ is a 
+bounded interval $[L,U]$, a partition of $\Z$ is a set of 
+intervals 
+\begin{equation}
+\Z_1 = (z_0,z_1), \Z_2 = (z_1,z_2), \cdots, \Z_m = (z_{m-1},z_m) 
+\end{equation}
+where 
+\be
+L=z_0 < z_1 < z_2 < \cdots < z_M=U. 
+\ee
+A partition breaks $\Z^2$ into a set of open rectangles 
+$$\Z_{ij} = \Z_i \times \Z_j = \{(z',z): z' \in \Z_i, z \in \Z_j\}.$$
+Define the kernels $K_{ij}$ to be $K$ restricted to $\Z_{ij}$. 
+
+We say that $K$ is \emph{piecewise continuous} if there exists a 
+partition such that each of the kernels $K_{ij}$ is continuous on $\Z_{ij}$, 
+and can be defined on the boundary of $\Z_{ij}$ so that it is continuous
+on the closed rectangle $\bar{\Z}_{ij}$ consisting of $\Z_{ij}$ and its boundary.  
+
+The reason this definition works is the general theory in section 6.9
+(originally in the Appendices to Ellner \& Rees 2006), applied to the  
+closed intervals $\bar{\Z}_{i} =  [z_0,z_1]$ as a set of continuous components, 
+with continuous component-to-component kernels $K_{ij}$. In terms of the general     
+theory, this is an IPM with continuous kernels. Formally, there is a separate state distribution 
+function $n_i(z,t)$ defined on each $\bar{\Z}_i$. But we can also think of there being a 
+single distribution function $n(z,t)$ on all of $[L,U]$, consisting of $n_1,n_2, \cdots n_M$ 
+side-by-side. 
+
+Each of the boundary points $z_i$ is in two adjacent components, but this doesn't matter because  
+single points contribute nothing to the subsequent population. 
+As an example consider  $\Z = [0,2]$ and the (contrived) kernel $K(z',z) = 1$ 
+if $z'>1$, and 0 otherwise. The partition is $\Z_1 = (0,1), \Z_2 = (1,2)$ and the kernels are 
+\be
+K_{11}=K_{12}\equiv 0, K_{21}=K_{22}\equiv 1.
+\ee
+The population dynamics are 
+\ba
+n_1(z',t+1) & = \int_0^1 K_{11}(z',z) n_1(z,t) dz + \int_1^2 K_{12}(z',z) n_2(z,t) dz  = 0 \\
+n_2(z',t+1) & = \int_0^1 K_{21}(z',z) n_1(z,t) dz + \int_1^2 K_{22}(z',z) n_2(z,t) dz  \\
+& =  \int_0^1 n_1(z,t) dz + \int_1^2 n_2(z,t) dz.  
+\label{eqn:badK1}
+\ea
+So $n_1(1,t+1)=0$, while $n_2(1,t+1)>0$ unless there were no individuals at time $t$. 
+However, the values of $n_1$ and $n_2$ at the one point $z=1$ have no effect on the
+integrals in the population dynamics, so we can regard $n(1,t+1)$ as being undefined,
+or give it an arbitrary value such the average $n_1(1,t+1)$ and $n_2(1,t+1)$. 
+
+The contrived kernel \eqref{eqn:badK1} is a counter-example to the claim in section 6.9 of the book 
+that a piecewise continuous kernel, as defined in that section, maps $L_1(\Z)$ into $C(\Z)$. 
+The gap in the proof is the assertion that the functions $f_n$ converge almost everywhere, 
+which is not necessarily true regardless of how the partitioning into sets $\mathcal{U}_k$ is done. But on the 
+set of domains $\bar{\Z}_{i}$ the component kernels are all continuous and the $f_n$ converge 
+pointwise, which is sufficient for the rest of the proof. 
+In example \eqref{eqn:badK1}, $n_1$ is continuous on $\bar{\Z}_1$ and 
+$n_2$ is continuous on $\bar{\Z}_2$, and that is exactly what it means to be continuous
+on the state space with domains $\bar{\Z}_1$ and $\bar{\Z}_2$.  
+
+Please see the related correction below about \textbf{Page 181}. 
+
+\paragraph{Page 15:} Equation (2.3.6), $C_1$ should be $C_0$ as it is in the life-cycle diagram, Figure 2.2. 
+
+\paragraph{Page 29:} 9 lines from the bottom, ``the the'' $\to$ ``the''
+
+\paragraph{Page 119:} \emph{Artemisia} is the correct spelling of the genus. 
+
+\paragraph{Page 181:} As we wrote regarding \textbf{Page 12}, ``piecewise continuous'' needs 
+to be defined more narrowly, so that all the claims in this section are valid. 
+Even if we ignore the fact that ``continuous curve'' was conveniently undefined, 
+eqn. \eqref{eqn:badK1} remains a counterexample to the claim that $K$ maps $L_1(\Z)$ into $C(\Z)$. 
+
+Fortunately, the same approach works in the general setting. A definition of ``piecewise continuous''
+that actually works is (informally): we can break up $\Z$ into pieces $\Z_j$, and thereby break up the kernel into
+pieces $K_{ij}$ for transitions from $\Z_j$ to $\Z_i$, in such a way that each $K_{ij}$ is continuous. 
+
+Reading the rest of this item requires some familiarity with the basics of measure theory 
+and functional analysis. Sorry, there's no way around this. 
+
+We are considering an IPM where the individual state-space $\Z$ is a compact metric space with metric $d$, 
+and the kernels are defined relative to a finite Borel measure $\mu$ on $\Z$. 
+The population dynamics are 
+\be
+n(z',t+1) = \int_{\Z} K(z',z)n(z,t) d\mu(z);
+\ee 
+in the book this is eqn. (6.9.1). The kernel is a function on $\Z^2 = \Z times \Z$, which we give the
+$L_2$ product metric and resulting product topology. Subsets of $\Z$ and $\Z^2$ are given the relative
+metric and measure. 
+
+Following the definition for the basic model, a partition of $\Z$ is defined to be a collection of disjoint 
+open (and therefore measurable) sets $\Z_1, \Z_2, \cdots, \Z_m $ whose boundaries all have $\mu$-measure 0, 
+such that the union of their closures $\bar{\Z}_j$ is $\Z$. Again, define the kernels $K_{ij}$ to be $K$ 
+restricted to $\Z_{ij} = \Z_i \times \Z_j$. 
+
+We say that a kernel $K$ is piecewise continuous if there is a partition such that each $K_{ij}$ is 
+continuous on each $\Z_{ij} = \Z_i \times \Z_j$ and can be defined on the boundary 
+of $\Z_{ij}$ so as to be continuous on its closure $\bar{\Z}_{ij}$. At a point $(z',z)$ that is on the boundary
+of $\Z_{ij}$ and of $\Z_{kl}$, the values chosen for $K_{ij}(z',z)$ and for $K_{kl}(z',z)$ to ensure continuity
+of $K_{ij}$ and $K_{kl}$ do not need to be the same.  
+
+The reason this works is (again) that the set of kernels $K_{ij}$ (extended to be continuous on their
+domain $\bar{\Z}_{ij}$) defines a general IPM in the sense of section 6.9 in which the overall 
+kernel is continuous. The individual-level state space for the general IPM is the collection of 
+sets $\bar{\Z}_j, j=1,2,\cdots m$ considered as distinct sets. Formally, define $\bar{\Z}^*_j$ to be 
+the set of ordered pairs $(z,j)$ where $z \in \bar{\Z}_j$, and let $\Z^*$ be the collection 
+of all $\bar{\Z}^*_j$ with the metric
+\be
+d^*((z_1,i),(z_2,j)) = \sqrt{d(z_1,z_2)^2 + (i-j)^2}. 
+\ee
+The overall kernel is
+\be
+K^*((z',i),(z,j)) = K_{ij}(z',z). 
+\ee
+A convergent sequence $x^*_n \to x^*_0$ in $\Z^* \times \Z^*$ must eventually consist of points whose $z$ coordinates 
+all lie in the same $\bar{\Z}_{ij}$, so the sequence is convergent in $\bar{\Z}_{ij}$. So for sufficiently large $n$, 
+$K^*(x^*_n) = K_{ij}(x^*_n)$ which converges to $K_{ij}(x^*_0)=K^*(x^*_0)$ because $K_{ij}$ is continuous. The overall
+kernel is therefore continuous. All results in section 6.9 for continuous kernels therefore also hold for
+piecewise continuous kernels under the definition of piecewise continuity given here. 
+
+\paragraph{Page 313:} 2nd line after eqn. (10.7.2), $Cov(Y_1,Y_2)$ $\to$ $Cov[X_2,Y_2]$
+
+\paragraph{Page 313:} line before eqn. (10.7.5) should refer to eqn. (10.7.4)
+
+\paragraph{Page 314:} penultimate line, al\'{a} $\to$ \`{a}  la 
+
+
+
+
+\end{document} 
+
+
+
+
+
