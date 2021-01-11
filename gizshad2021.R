@@ -16,11 +16,11 @@ m.par <- c(
   surv.max    =  0.70, # max survival - ???
   surv.alpha = 80, # inflection point
   surv.beta = -5, # slope
-  ## growth from Catalano & Allen (2010) paper
+  ## growth from Catalano & Allen (2010) paper - Table 3
   grow.max  =   394.30, # maximum length in mm: L_inf = 394.30
   grow.rate =   0.60, # growth rate: 
   grow.sd   =   10,  # growth sd
-  ## recruit - From Bodoga (1955) estimated from Figure 14
+  ## recruit - From Bodola (1955) estimated from Figure 14
   recruit.mean = 112,
   recruit.sd = 40,
   egg_viable = 0.002,
@@ -188,19 +188,6 @@ F_z1z <- function (z1, z,n, m.par) {
  #  return( p_bz(z, m.par) * b_z(z, m.par) * m.par["p.r"] * c_0z1(z1, m.par))
 }
 
-####### Survival Function
-
-#### Model Analysis. No comparison to data
-N <- 10 # number of size classes
-L.shad <- 0.01   # lower size limit in mm
-U.shad <- 500.0    # upper size limit in mm - we want this to be larger than L-infty
-
-####
-# As we test the model, we will need some equal spaced meshpoints. 
-# This can be moved down later.
-delta.z = (U.shad - L.shad)/N
-zmesh <-  L.shad + ((1:N) - 1/2) * (U.shad-L.shad)/N    # midpoint of N intervals
-####
 
 Tf <- 40 # number of years
 n <- matrix(0,length(zmesh),Tf)
@@ -222,11 +209,6 @@ n.total <- rep(0,Tf)
 for (i in 1:Tf){
   n.total[i] <- sum(n[,i])*delta.z
 }
-
-#plt.df <- data.frame(time.years=seq(Tf), number = n.total)
-#ggplot(data=plt.df, aes(x=time.years, y=number)) +
-#  geom_path() + 
-#  theme_bw()
 
 # survival0 vs time
 surv_t <- rep(0, times=(Tf-10))
@@ -273,23 +255,23 @@ ggplot(data=plt.df,
 
 ##### Graph n over time
 #### Model Analysis. No comparison to data
-N <- 50 # number of size classes
-L.shad <- 0.01   # lower size limit in mm
-U.shad <- 500.0    # upper size limit in mm - we want this to be larger than L-infty
+#N <- 50 # number of size classes
+#L.shad <- 0.01   # lower size limit in mm
+#U.shad <- 500.0    # upper size limit in mm - we want this to be larger than L-infty
 
 ####
 # As we test the model, we will need some equal spaced meshpoints. 
 # This can be moved down later.
-delta.z = (U.shad - L.shad)/N
-zmesh <-  L.shad + ((1:N) - 1/2) * (U.shad-L.shad)/N    # midpoint of N intervals
+#delta.z = (U.shad - L.shad)/N
+#zmesh <-  L.shad + ((1:N) - 1/2) * (U.shad-L.shad)/N    # midpoint of N intervals
 ####
 
 
-Tf <- 40 # number of years
-n <- matrix(0,length(zmesh),Tf)
-n0.total <- 5000
-n[,1] <-dnorm(zmesh, mean = (U.shad + L.shad)/2, sd = 50)  
-n[,1] <- (n[,1]/sum(n[,1]))*n0.total/delta.z
+# Tf <- 40 # number of years
+# n <- matrix(0,length(zmesh),Tf)
+# n0.total <- 5000
+# n[,1] <-dnorm(zmesh, mean = (U.shad + L.shad)/2, sd = 50)  
+# n[,1] <- (n[,1]/sum(n[,1]))*n0.total/delta.z
 
 # Note: sum(n[,1])*delta.z = n0.total
 

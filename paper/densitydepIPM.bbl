@@ -1,0 +1,70 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Aday et~al.(2003)Aday, Hoxmeier, and Wahl]{aday2003direct}
+D.~D. Aday, R.~J.~H. Hoxmeier, and D.~H. Wahl.
+\newblock Direct and indirect effects of gizzard shad on bluegill growth and
+  population size structure.
+\newblock \emph{Transactions of the American Fisheries Society}, 132\penalty0
+  (1):\penalty0 47--56, 2003.
+
+\bibitem[Ellner et~al.(2016)Ellner, Childs, Rees, et~al.]{ellner2016data}
+S.~P. Ellner, D.~Z. Childs, M.~Rees, et~al.
+\newblock Data-driven modelling of structured populations.
+\newblock \emph{A practical guide to the Integral Projection Model. Cham:
+  Springer}, 2016.
+
+\bibitem[Jester et~al.(1972)Jester, Jensen, et~al.]{jester1972life}
+D.~B. Jester, B.~L. Jensen, et~al.
+\newblock Life history and ecology of the gizzard shad, dorosoma cepedianum (le
+  sueur) with reference to elephant butte lake.
+\newblock 1972.
+
+\bibitem[Mather et~al.(1995)Mather, Vanni, Wissing, Davis, and
+  Schaus]{mather1995regeneration}
+M.~E. Mather, M.~J. Vanni, T.~E. Wissing, S.~A. Davis, and M.~H. Schaus.
+\newblock Regeneration of nitrogen and phosphorus by bluegill and gizzard shad:
+  effect of feeding history.
+\newblock \emph{Canadian Journal of Fisheries and Aquatic Sciences},
+  52\penalty0 (11):\penalty0 2327--2338, 1995.
+
+\bibitem[Merow et~al.(2014)Merow, Dahlgren, Metcalf, Childs, Evans, Jongejans,
+  Record, Rees, Salguero-G{\'o}mez, and McMahon]{merow2014advancing}
+C.~Merow, J.~P. Dahlgren, C.~J.~E. Metcalf, D.~Z. Childs, M.~E. Evans,
+  E.~Jongejans, S.~Record, M.~Rees, R.~Salguero-G{\'o}mez, and S.~M. McMahon.
+\newblock Advancing population ecology with integral projection models: a
+  practical guide.
+\newblock \emph{Methods in Ecology and Evolution}, 5\penalty0 (2):\penalty0
+  99--110, 2014.
+
+\bibitem[Pierce et~al.(1981)Pierce, Wissing, and Megrey]{pierce1981aspects}
+R.~J. Pierce, T.~E. Wissing, and B.~A. Megrey.
+\newblock Aspects of the feeding ecology of gizzard shad in acton lake, ohio.
+\newblock \emph{Transactions of the American Fisheries Society}, 110\penalty0
+  (3):\penalty0 391--395, 1981.
+
+\bibitem[Rees et~al.(2014)Rees, Childs, and Ellner]{rees2014building}
+M.~Rees, D.~Z. Childs, and S.~P. Ellner.
+\newblock Building integral projection models: a user's guide.
+\newblock \emph{Journal of Animal Ecology}, 83\penalty0 (3):\penalty0 528--545,
+  2014.
+
+\bibitem[Schaus and Vanni(2000)]{schaus2000effects}
+M.~H. Schaus and M.~J. Vanni.
+\newblock Effects of gizzard shad on phytoplankton and nutrient dynamics: role
+  of sediment feeding and fish size.
+\newblock \emph{Ecology}, 81\penalty0 (6):\penalty0 1701--1719, 2000.
+
+\bibitem[Vanni et~al.(2005)Vanni, Arend, Bremigan, Bunnell, Garvey, Gonzalez,
+  Renwick, Soranno, and Stein]{vanni2005linking}
+M.~J. Vanni, K.~K. Arend, M.~T. Bremigan, D.~B. Bunnell, J.~E. Garvey, M.~J.
+  Gonzalez, W.~H. Renwick, P.~A. Soranno, and R.~A. Stein.
+\newblock Linking landscapes and food webs: effects of omnivorous fish and
+  watersheds on reservoir ecosystems.
+\newblock \emph{BioScience}, 55\penalty0 (2):\penalty0 155--167, 2005.
+
+\end{thebibliography}
