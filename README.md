@@ -1,3 +1,5 @@
-Integral Projection Model for Gizzard Shad
+# Integral Projection Model for Gizzard Shad (2021)
 
-Created by: James Peirce
+Authors: Richard Erickson, James Peirce, Greg Sandland
+
+Point of contact: James Peirce (jpeirce@uwlax.edu)
