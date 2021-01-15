@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  11 JAN 2021 14:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  15 JAN 2021 10:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -745,23 +745,400 @@ ut line 58.
 
 
 Package natbib Warning: Citation `erickson2017integral' on page 1 undefined on 
-input line 85.
+input line 95.
 
 
 Package natbib Warning: Citation `erickson2017integral' on page 1 undefined on 
-input line 85.
+input line 95.
 
 
 Package natbib Warning: Citation `erickson2017integral' on page 1 undefined on 
-input line 85.
+input line 95.
 
 
 Package natbib Warning: Citation `erickson2017integral' on page 1 undefined on 
-input line 85.
+input line 95.
 
 
 Package natbib Warning: Citation `catalano2010size' on page 1 undefined on inpu
-t line 85.
+t line 95.
 
 
-P
+Package natbib Warning: Citation `catalano2010size' on page 1 undefined on inpu
+t line 95.
+
+
+Package natbib Warning: Citation `erickson2017integral' on page 1 undefined on 
+input line 95.
+
+
+Package natbib Warning: Citation `bodola1955life' on page 1 undefined on input 
+line 95.
+
+
+Package natbib Warning: Citation `bodola1955life' on page 1 undefined on input 
+line 95.
+
+
+Package natbib Warning: Citation `jons1997ovarian' on page 1 undefined on input
+ line 95.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+[]\OT1/cmr/m/n/10.95 Estimated
+ []
+
+
+Package natbib Warning: Citation `jons1997ovarian' on page 1 undefined on input
+ line 95.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+[]\OT1/cmr/m/n/10.95 Estimated
+ []
+
+
+Package natbib Warning: Citation `jons1997ovarian' on page 1 undefined on input
+ line 95.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+[]\OT1/cmr/m/n/10.95 Estimated
+ []
+
+
+Package natbib Warning: Citation `michaletz2010overwinter' on page 1 undefined 
+on input line 95.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+[]\OT1/cmr/m/n/10.95 Estimated
+ []
+
+
+Package natbib Warning: Citation `michaletz2010overwinter' on page 1 undefined 
+on input line 95.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+[]\OT1/cmr/m/n/10.95 Estimated
+ []
+
+
+Package natbib Warning: Citation `bodola1955life' on page 1 undefined on input 
+line 95.
+
+
+Package natbib Warning: Citation `ellner2016data' on page 1 undefined on input 
+line 104.
+
+
+Package natbib Warning: Citation `merow2014advancing' on page 1 undefined on in
+put line 104.
+
+
+Package natbib Warning: Citation `rees2014building' on page 1 undefined on inpu
+t line 104.
+
+[1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+Package natbib Warning: Citation `bolker2008ecological' on page 2 undefined on 
+input line 115.
+
+[2]
+
+Package natbib Warning: Citation `michaletz2010overwinter' on page 3 undefined 
+on input line 138.
+
+
+Package natbib Warning: Citation `jons1997ovarian' on page 3 undefined on input
+ line 160.
+
+
+Package natbib Warning: Citation `jons1997ovarian' on page 3 undefined on input
+ line 160.
+
+
+LaTeX Warning: Reference `fig:surv_age0' on page 3 undefined on input line 164.
+
+
+
+Package natbib Warning: Citation `michaletz2010overwinter' on page 3 undefined 
+on input line 164.
+
+<figures/Figure1a.pdf, id=36, 818.05624pt x 505.89pt>
+File: figures/Figure1a.pdf Graphic file (type pdf)
+
+<use figures/Figure1a.pdf>
+Package pdftex.def Info: figures/Figure1a.pdf used on input line 169.
+(pdftex.def)             Requested size: 201.9912pt x 124.91289pt.
+
+<figures/Figure1b.pdf, id=37, 818.05624pt x 505.89pt>
+File: figures/Figure1b.pdf Graphic file (type pdf)
+
+<use figures/Figure1b.pdf>
+Package pdftex.def Info: figures/Figure1b.pdf used on input line 174.
+(pdftex.def)             Requested size: 201.9912pt x 124.91289pt.
+
+
+Package natbib Warning: Citation `jons1997ovarian' on page 3 undefined on input
+ line 178.
+
+
+Package natbib Warning: Citation `michaletz2010overwinter' on page 3 undefined 
+on input line 178.
+
+
+Package natbib Warning: Citation `jons1997ovarian' on page 3 undefined on input
+ line 178.
+
+
+Package natbib Warning: Citation `michaletz2010overwinter' on page 3 undefined 
+on input line 178.
+
+[3]
+
+Package natbib Warning: Citation `burden2005numerical' on page 4 undefined on i
+nput line 185.
+
+
+Package natbib Warning: Citation `ellner2006integral' on page 4 undefined on in
+put line 185.
+
+
+Package natbib Warning: Citation `ramula2009integral' on page 4 undefined on in
+put line 185.
+
+
+Package natbib Warning: Citation `merow2014advancing' on page 4 undefined on in
+put line 185.
+
+
+Package natbib Warning: Citation `williams2012avoiding' on page 4 undefined on 
+input line 185.
+
+
+LaTeX Warning: Reference `fig:age0time' on page 4 undefined on input line 190.
+
+
+LaTeX Warning: Reference `fig:lambda' on page 4 undefined on input line 191.
+
+<figures/Figure2a.pdf, id=51, 818.05624pt x 505.89pt>
+File: figures/Figure2a.pdf Graphic file (type pdf)
+
+<use figures/Figure2a.pdf>
+Package pdftex.def Info: figures/Figure2a.pdf used on input line 196.
+(pdftex.def)             Requested size: 201.9912pt x 124.91289pt.
+
+<figures/Figure2b.pdf, id=52, 818.05624pt x 505.89pt>
+File: figures/Figure2b.pdf Graphic file (type pdf)
+
+<use figures/Figure2b.pdf>
+Package pdftex.def Info: figures/Figure2b.pdf used on input line 201.
+(pdftex.def)             Requested size: 201.9912pt x 124.91289pt.
+
+<figures/Figure4a.pdf, id=53, 818.05624pt x 505.89pt>
+File: figures/Figure4a.pdf Graphic file (type pdf)
+
+<use figures/Figure4a.pdf>
+Package pdftex.def Info: figures/Figure4a.pdf used on input line 230.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure4b.pdf, id=54, 818.05624pt x 505.89pt>
+File: figures/Figure4b.pdf Graphic file (type pdf)
+
+<use figures/Figure4b.pdf>
+Package pdftex.def Info: figures/Figure4b.pdf used on input line 235.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure4c.pdf, id=55, 818.05624pt x 505.89pt>
+File: figures/Figure4c.pdf Graphic file (type pdf)
+
+<use figures/Figure4c.pdf>
+Package pdftex.def Info: figures/Figure4c.pdf used on input line 240.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure4d.pdf, id=56, 818.05624pt x 505.89pt>
+File: figures/Figure4d.pdf Graphic file (type pdf)
+
+<use figures/Figure4d.pdf>
+Package pdftex.def Info: figures/Figure4d.pdf used on input line 245.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure4e.pdf, id=57, 818.05624pt x 505.89pt>
+File: figures/Figure4e.pdf Graphic file (type pdf)
+
+<use figures/Figure4e.pdf>
+Package pdftex.def Info: figures/Figure4e.pdf used on input line 250.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure4f.pdf, id=58, 818.05624pt x 505.89pt>
+File: figures/Figure4f.pdf Graphic file (type pdf)
+
+<use figures/Figure4f.pdf>
+Package pdftex.def Info: figures/Figure4f.pdf used on input line 255.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure4g.pdf, id=59, 818.05624pt x 505.89pt>
+File: figures/Figure4g.pdf Graphic file (type pdf)
+
+<use figures/Figure4g.pdf>
+Package pdftex.def Info: figures/Figure4g.pdf used on input line 260.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure4h.pdf, id=60, 818.05624pt x 505.89pt>
+File: figures/Figure4h.pdf Graphic file (type pdf)
+
+<use figures/Figure4h.pdf>
+Package pdftex.def Info: figures/Figure4h.pdf used on input line 265.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure4i.pdf, id=61, 818.05624pt x 505.89pt>
+File: figures/Figure4i.pdf Graphic file (type pdf)
+
+<use figures/Figure4i.pdf>
+Package pdftex.def Info: figures/Figure4i.pdf used on input line 270.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure5a.pdf, id=62, 818.05624pt x 505.89pt>
+File: figures/Figure5a.pdf Graphic file (type pdf)
+
+<use figures/Figure5a.pdf>
+Package pdftex.def Info: figures/Figure5a.pdf used on input line 283.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure5b.pdf, id=63, 818.05624pt x 505.89pt>
+File: figures/Figure5b.pdf Graphic file (type pdf)
+
+<use figures/Figure5b.pdf>
+Package pdftex.def Info: figures/Figure5b.pdf used on input line 288.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure5c.pdf, id=64, 818.05624pt x 505.89pt>
+File: figures/Figure5c.pdf Graphic file (type pdf)
+
+<use figures/Figure5c.pdf>
+Package pdftex.def Info: figures/Figure5c.pdf used on input line 293.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure5d.pdf, id=65, 818.05624pt x 505.89pt>
+File: figures/Figure5d.pdf Graphic file (type pdf)
+
+<use figures/Figure5d.pdf>
+Package pdftex.def Info: figures/Figure5d.pdf used on input line 298.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure5e.pdf, id=66, 818.05624pt x 505.89pt>
+File: figures/Figure5e.pdf Graphic file (type pdf)
+
+<use figures/Figure5e.pdf>
+Package pdftex.def Info: figures/Figure5e.pdf used on input line 303.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+<figures/Figure5f.pdf, id=67, 818.05624pt x 505.89pt>
+File: figures/Figure5f.pdf Graphic file (type pdf)
+
+<use figures/Figure5f.pdf>
+Package pdftex.def Info: figures/Figure5f.pdf used on input line 308.
+(pdftex.def)             Requested size: 140.92792pt x 87.15031pt.
+
+
+LaTeX Warning: Reference `eq:IPM' on page 4 undefined on input line 321.
+
+
+LaTeX Warning: Reference `fig:LGdata_sim' on page 4 undefined on input line 321
+.
+
+[4 <./figures/Figure1a.pdf> <./figures/Figure1b.pdf>]
+<figures/Figure3.pdf, id=88, 818.05624pt x 505.89pt>
+File: figures/Figure3.pdf Graphic file (type pdf)
+ <use figures/Figure3.pdf>
+Package pdftex.def Info: figures/Figure3.pdf used on input line 331.
+(pdftex.def)             Requested size: 258.36667pt x 159.77303pt.
+
+<figures/popdensity.png, id=89, 386.44376pt x 279.0425pt>
+File: figures/popdensity.png Graphic file (type png)
+
+<use figures/popdensity.png>
+Package pdftex.def Info: figures/popdensity.png used on input line 346.
+(pdftex.def)             Requested size: 150.32503pt x 108.5451pt.
+
+<figures/lagrange.png, id=91, 411.5375pt x 279.0425pt>
+File: figures/lagrange.png Graphic file (type png)
+
+<use figures/lagrange.png>
+Package pdftex.def Info: figures/lagrange.png used on input line 351.
+(pdftex.def)             Requested size: 150.32503pt x 101.92842pt.
+
+<figures/pool26.png, id=92, 435.0654pt x 328.1058pt>
+File: figures/pool26.png Graphic file (type png)
+ <use figures/pool26.png>
+Package pdftex.def Info: figures/pool26.png used on input line 356.
+(pdftex.def)             Requested size: 150.32503pt x 113.36684pt.
+
+[5 <./figures/Figure2a.pdf> <./figures/Figure2b.pdf> <./figures/Figure4a.pdf> <
+./figures/Figure4b.pdf> <./figures/Figure4c.pdf> <./figures/Figure4d.pdf> <./fi
+gures/Figure4e.pdf> <./figures/Figure4f.pdf> <./figures/Figure4g.pdf> <./figure
+s/Figure4h.pdf> <./figures/Figure4i.pdf>] (./densitydepIPM.bbl [6 <./figures/Fi
+gure5a.pdf> <./figures/Figure5b.pdf> <./figures/Figure5c.pdf> <./figures/Figure
+5d.pdf> <./figures/Figure5e.pdf> <./figures/Figure5f.pdf> <./figures/Figure3.pd
+f> <./figures/popdensity.png> <./figures/lagrange.png> <./figures/pool26.png>])
+
+Package natbib Warning: There were undefined citations.
+
+[7]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 370.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 370.
+ (./densitydepIPM.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 370.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 370.
+
+
+Package rerunfilecheck Warning: File `densitydepIPM.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `densitydepIPM.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  5443BD26527599C85467A1E6F3548BDB;849.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 370.
+ ) 
+Here is how much of TeX's memory you used:
+ 18455 strings out of 493089
+ 351814 string characters out of 6134842
+ 414955 words of memory out of 5000000
+ 21386 multiletter control sequences out of 15000+600000
+ 12264 words of font info for 50 fonts, out of 8000000 for 9000
+ 1302 hyphenation exceptions out of 8191
+ 55i,12n,76p,1692b,484s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on densitydepIPM.pdf (7 pages, 431206 bytes).
+PDF statistics:
+ 280 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
+ 54 named destinations out of 1000 (max. 500000)
+ 128 words of extra memory for PDF output out of 10000 (max. 10000000)
+

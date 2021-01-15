@@ -26,8 +26,8 @@ m.par <- c(
   egg_viable = 0.002,
   #### Spawning Probability
   prob_spawn = 0.90
-#  max_spawn_prob = 0.90,  ## reference?  to match AC?
-#  spawn_decay = 0.05 # chosen to keep prob. of reproducing relatively constant
+  #  max_spawn_prob = 0.90,  ## reference?  to match AC?
+  #  spawn_decay = 0.05 # chosen to keep prob. of reproducing relatively constant
 )
 
 #### FOR SIMULATIONS
@@ -63,14 +63,17 @@ eggs_z <- function(z) # Eggs produced (note: data was in thousands)
   return(1000*egg.ext.m3$coefficients[2]/(1+exp(egg.ext.m3$coefficients[1]*(log(z)-log(egg.ext.m3$coefficients[3])))))
 }
 
+### FIGURE 1(a)
+pdf("~/OneDrive - University of Wisconsin-La Crosse/GizzardShad/paper/figures/Figure1a.pdf", 
+    width = ((1+sqrt(5))/2)*7)
 plot.df <- data.frame(z = zmesh, eggs =  eggs_z(zmesh)/1000 )
 ggplot(data = plot.df,
        aes( x = z, y = eggs)) +
   geom_line(color = "blue", size = 1)+
   labs(x = "length (in mm)",
        y = "eggs (in thousands)",
-       title = "Eggs Produced",
-       subtitle = "Gizzard Shad") + 
+       title = "Eggs Produced") +
+  #     subtitle = "Gizzard Shad")  
   scale_x_continuous(limits = c(0,U.shad), breaks = seq(0,500,100))+
   scale_y_continuous(limits = c(0,700), breaks = seq(0,700,100))+
   geom_point(data = egg.size.data,
@@ -79,6 +82,7 @@ ggplot(data = plot.df,
   theme_classic()+
   theme(text = element_text(size=16),
         aspect.ratio = .7)
+dev.off()
 
 ### SURVIVAL AGE0
 ## import data from Michaletz paper
@@ -99,23 +103,24 @@ dmesh <- seq( from = min(Michaletz.data$density),
               to =max(Michaletz.data$density), 
               length.out = length(Michaletz.data$density) )
 
+pdf("~/OneDrive - University of Wisconsin-La Crosse/GizzardShad/paper/figures/Figure1b.pdf", 
+    width = ((1+sqrt(5))/2)*7)
 plot.df <- data.frame(x = dmesh , prob = surv.density(dmesh) )
 ggplot(data = plot.df,
        aes( x = x, y = prob))+
   geom_line(color = "blue", size = 1)+
   labs(x = "density (age-0 per 1000 m^3)",
        y = "probability of survival",
-       title = "Survival Probability for Age-0",
-       subtitle = "Gizzard Shad") + 
+       title = "Survival Probability for Age-0")+
   scale_x_continuous(limits = c(0,max(Michaletz.data$density)), 
                      breaks = seq(0,max(Michaletz.data$density),200))+
   scale_y_continuous(limits = c(0,1), breaks = seq(0,1,.1))+
   geom_point(data = Michaletz.data, 
              aes(x = density, y = survival/100))+
   theme_classic()+
-theme(text = element_text(size=16),
-      aspect.ratio = .7)
-#dev.off()
+  theme(text = element_text(size=16),
+        aspect.ratio = .7)
+dev.off()
 
 
 ######################
@@ -139,7 +144,7 @@ G_z1z <- function(z1, z, m.par)
 s_z <- function(z, m.par)
 {
   m.par["surv.min"] + (m.par["surv.max"]-m.par["surv.min"])/(1+exp(m.par["surv.beta"]*(log(z)-log(m.par["surv.alpha"]))))
-  }
+}
 
 ################ Reproduction
 
@@ -175,16 +180,16 @@ P_z1z <- function(z1, z, m.par) {
     G_matrix[,x] <- G_z1z(z, rep(z[x], times = N), m.par)
     G_matrix[,x] <- G_matrix[,x]/(sum(G_matrix[,x])*delta.z)
   }
-#  return(s_z(z, m.par) * G_matrix)
+  #  return(s_z(z, m.par) * G_matrix)
   return(G_matrix %*% diag(s_z(z, m.par)))
-  }
+}
 
 ## Define the fecundity kernel
 F_z1z <- function (z1, z,n, m.par) {
- age1_dist <- m.par["prob_spawn"]*eggs_z(z)*m.par["egg_viable"]*surv_age0(n,z, m.par) 
- # returns fecundity kernel (as a matrix). Recruits= F.dot(n*delta_z) 
+  age1_dist <- m.par["prob_spawn"]*eggs_z(z)*m.par["egg_viable"]*surv_age0(n,z, m.par) 
+  # returns fecundity kernel (as a matrix). Recruits= F.dot(n*delta_z) 
   return( outer(C_1z1(z1,m.par), age1_dist))
- #  return( p_bz(z, m.par) * b_z(z, m.par) * m.par["p.r"] * C_1z1(z1, m.par))
+  #  return( p_bz(z, m.par) * b_z(z, m.par) * m.par["p.r"] * C_1z1(z1, m.par))
 }
 
 ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -194,6 +199,7 @@ F_z1z <- function (z1, z,n, m.par) {
 ############
 ### Exploring Density
 ############
+
 ## Normal Distribution ##
 
 Tf <- 40 # number of years
@@ -314,6 +320,7 @@ ggplot(data = plot.df,
         aspect.ratio = .7)
 dev.off()
 
+##########
 ## Initially Shorter/Younger GS
 ## Skewed Right Distribution ##
 
@@ -345,6 +352,8 @@ for (i in 1:(Tf-10-1)){
 }
 
 ### FIGURE (a)
+pdf("~/OneDrive - University of Wisconsin-La Crosse/GizzardShad/paper/figures/Figure5a.pdf", 
+    width = ((1+sqrt(5))/2)*7)
 plot.df <- data.frame(time.years=seq(Tf-10), prob = surv_t)
 ggplot(data=plot.df, 
        aes(x=time.years, y=prob)) +
@@ -360,6 +369,7 @@ ggplot(data=plot.df,
   theme_classic() +
   theme(text = element_text(size=16),
         aspect.ratio = .7)
+dev.off()
 
 # lambda vs time
 lambda <- rep(0,Tf)
@@ -368,6 +378,8 @@ for (i in 1:(Tf-1)){
 }
 
 ### FIGURE (b)
+pdf("~/OneDrive - University of Wisconsin-La Crosse/GizzardShad/paper/figures/Figure5b.pdf", 
+    width = ((1+sqrt(5))/2)*7)
 plot.df <- data.frame(time.years=seq(Tf), ratio = lambda)
 ggplot(data=plot.df, 
        aes(x=time.years, y=ratio)) +
@@ -383,6 +395,7 @@ ggplot(data=plot.df,
   theme_classic() +
   theme(text = element_text(size=16),
         aspect.ratio = .7)
+dev.off()
 
 # Dynamical system
 for (i in 1:(Tf-1)) {
@@ -397,6 +410,8 @@ for (i in 1:Tf){
   n.total[i] <- sum(n[,i])*delta.z
 }
 
+pdf("~/OneDrive - University of Wisconsin-La Crosse/GizzardShad/paper/figures/Figure5c.pdf", 
+    width = ((1+sqrt(5))/2)*7)
 plot.df <- data.frame(z = zmesh, density = n[,1:5]/sum(n[,1:5]) )
 ggplot(data = plot.df,
        aes( x = z, y = density.1, color = "t=0"))+
@@ -424,6 +439,7 @@ ggplot(data = plot.df,
   theme_classic()+
   theme(text = element_text(size=16),
         aspect.ratio = .7)
+dev.off()
 
 ## Initially Longer/Older GS
 ## Skewed Left Distribution ##
@@ -456,6 +472,8 @@ for (i in 1:(Tf-10-1)){
 }
 
 ### FIGURE (a)
+pdf("~/OneDrive - University of Wisconsin-La Crosse/GizzardShad/paper/figures/Figure5d.pdf", 
+    width = ((1+sqrt(5))/2)*7)
 plot.df <- data.frame(time.years=seq(Tf-10), prob = surv_t)
 ggplot(data=plot.df, 
        aes(x=time.years, y=prob)) +
@@ -471,6 +489,7 @@ ggplot(data=plot.df,
   theme_classic() +
   theme(text = element_text(size=16),
         aspect.ratio = .7)
+dev.off()
 
 # lambda vs time
 lambda <- rep(0,Tf)
@@ -479,6 +498,8 @@ for (i in 1:(Tf-1)){
 }
 
 ### FIGURE (b)
+pdf("~/OneDrive - University of Wisconsin-La Crosse/GizzardShad/paper/figures/Figure5e.pdf", 
+    width = ((1+sqrt(5))/2)*7)
 plot.df <- data.frame(time.years=seq(Tf), ratio = lambda)
 ggplot(data=plot.df, 
        aes(x=time.years, y=ratio)) +
@@ -494,6 +515,7 @@ ggplot(data=plot.df,
   theme_classic() +
   theme(text = element_text(size=16),
         aspect.ratio = .7)
+dev.off()
 
 # Dynamical system
 for (i in 1:(Tf-1)) {
@@ -508,6 +530,8 @@ for (i in 1:Tf){
   n.total[i] <- sum(n[,i])*delta.z
 }
 
+pdf("~/OneDrive - University of Wisconsin-La Crosse/GizzardShad/paper/figures/Figure5f.pdf", 
+    width = ((1+sqrt(5))/2)*7)
 plot.df <- data.frame(z = zmesh, density = n[,1:5]/sum(n[,1:5]) )
 ggplot(data = plot.df,
        aes( x = z, y = density.1, color = "t=0"))+
@@ -535,7 +559,7 @@ ggplot(data = plot.df,
   theme_classic()+
   theme(text = element_text(size=16),
         aspect.ratio = .7)
-
+dev.off()
 
 
 
@@ -597,10 +621,11 @@ for (i in 1:(Tf-1)) {
 ###Figure 3
 ## 2005 predicted vs data. A comparison length frequency in 2005 from LTRM data and simulated frequency from the model with 
 # initial condition given by LTRM data in 2002.
-
+pdf("~/OneDrive - University of Wisconsin-La Crosse/GizzardShad/paper/figures/Figure3.pdf", 
+    width = ((1+sqrt(5))/2)*7)
 plot.df <- data.frame( Legend = c(rep('predicted',N),rep('2005',N)), 
-                      length = rep(zmesh,2),
-                      frequency = c(n[,4]/sum(n[,4]),lg2005_data$count/sum(lg2005_data$count)))
+                       length = rep(zmesh,2),
+                       frequency = c(n[,4]/sum(n[,4]),lg2005_data$count/sum(lg2005_data$count)))
 ggplot(plot.df, aes(x=length, y=frequency, fill = Legend))+
   geom_bar(stat="identity", position = position_dodge()) + 
   labs(x = "length (in mm)",
@@ -610,6 +635,7 @@ ggplot(plot.df, aes(x=length, y=frequency, fill = Legend))+
   theme_bw() +
   theme(text = element_text(size=16),
         aspect.ratio = .7)
+dev.off()
 
 ########## LTMR Data - La Grange
 ltmr.data <- read.csv('ltrm_fish_data2.csv',header=TRUE,sep=",")
@@ -659,8 +685,8 @@ ggplot(data = lg.data,
   scale_x_continuous(limits = c(first(lg.data$year),last(lg.data$year)), 
                      breaks = seq(first(lg.data$year),last(lg.data$year),5))+
   scale_y_continuous(limits = c(0,50000), breaks = seq(0,50000,10000))+
-#  geom_point(data = Michaletz.data, 
-#             aes(x = density, y = survival/100))+
+  #  geom_point(data = Michaletz.data, 
+  #             aes(x = density, y = survival/100))+
   theme_classic()
 
 

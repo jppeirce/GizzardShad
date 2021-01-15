@@ -57,6 +57,8 @@ XXX
 \section{Introduction}
 Gizzard shad are a common freshwater fish throughout the central and eastern portions of North America, occupying both lotic and lentic habitats \citep{pierce1981aspects,vanni2005linking}. Within these areas, gizzard shad play a number of important roles in the freshwater community. First, young shad often serve as a critical food source for many fish species, including those of commercial and recreational importance (such as walleye and largemouth bass) \citep{jester1972life}. Second, because detritus serves as an important food source throughout much of gizzard shad development (i.e. from the young-of-the-year stage onward), these fish translocate nutrients from benthic regions into pelagic habitats \citep{mather1995regeneration, schaus2000effects, vanni2005linking}. This process can result in an increase in the nutrients available to organisms within the water column leading to increases in phytoplankton biomass, algal blooms, and, due to these conditions, shifts in freshwater community structure \citep{aday2003direct, schaus2000effects}. Finally, the fact that detritus comprises gizzard shad diets makes this species an important link between aquatic and terrestrial ecosystems through nutrient inputs \citep{schaus2000effects}. Given its potentially important role in aquatic ecosystems, interest has intensified in understanding how gizzard shad populations respond to environmental changes (both natural and anthropogenic) and what these changes may mean for freshwater communities in general and fish assemblages in particular. This rich literature source has provided a source of parameter values for the model (Table 1).
 
+Paragraph about density effect on fish species in Upper Mississippi River. Emphasize our present investigation on density role in age-0 survival.
+
 Although substantial empirical work on gizzard shad biology has accumulated over the decades, few if any studies have attempted to use these data to model the population dynamics of the particular species. Here, we introduce an integral projection model for gizzard shad based on empirical data, with density-dependent survival in age-0 fish, and compare model outcomes to dynamics reported for this fish species in the La Grange Station along the Illinois River. The model itself could be an important tool for predicting gizzard shad population responses to changing environmental conditions, including those mediated through species invasions (i.e. silver and bighead carp).
 
 
@@ -65,23 +67,31 @@ Although substantial empirical work on gizzard shad biology has accumulated over
   }
  \begin{center}
 	\resizebox{\textwidth}{!}{
-\begin{tabular}{l|p{7.7cm}|c| p{2.5cm}  }\hline
+\begin{tabular}{l|p{7cm}|c| p{2.5cm}  }\hline
      Parameter & Meaning (units) & Mean Value & Source \\\hline
 Logistic survival probability function, $s(z)$ & & \\
   $\ds s_{\rm {min}}$ & minimum survival & 0.10 & \citep{erickson2017integral} \\
   $\ds s_{\rm {max}}$ & maximum survival & 0.70 & \citep{erickson2017integral} \\
  $\ds \alpha_s$  & inflection point & 80 & \citep{erickson2017integral} \\
-  $\ds \beta_s$ & slope & -5 & \citep{erickson2017integral} \\hline
+  $\ds \beta_s$ & slope & -5 & \citep{erickson2017integral} \\\hline
   Growth function, $\ds G(z,z')$ & & \\
-  $\mbox{L}_\infty$ & maximum length (in mm) & 394.30 & \citep{catalano2010size} \\
+  $L_\infty$ & maximum length (in mm) & 394.30 & \citep{catalano2010size} \\
   $r_g$ & growth rate & 0.60 &  \citep{catalano2010size} \\
   $\sigma_g$ & growth standard deviation & 10 &  \citep{erickson2017integral}  \\\hline
   Normal distribution of length of age-1, $\ds C_1(z')$ & & \\
   $\mu_r$ & mean length of recruitment (in mm) & 112 & \citep{bodola1955life} \\
   $\sigma_r$  & standard deviation of length & 40 &  \citep{bodola1955life} \\\hline
+Eggs produced, egg(z) & & \\
+$\ds \mbox{egg}_{\mbox{max}}$ & maximum number of eggs produced & 742,094 & Estimated from \citep{jons1997ovarian} \\
+$\ds \alpha_e$ & inflection point & 314.44 & Estimated from \citep{jons1997ovarian} \\
+$\ds \beta_e$ & slope & -7.12 & Estimated from \citep{jons1997ovarian} \\\hline
+Survival of age-0, $s_0(d(t))$ & & \\
+$\ds a_0$ & intercept & 0.27 & Estimated from \citep{michaletz2010overwinter} \\
+$\ds b_0$ & decay rate & 0.003 & Estimated from \citep{michaletz2010overwinter} \\\hline
 Spawning & & \\ 
  egg.viable  & probability that egg becomes viable & 0.002 & \citep{bodola1955life} \\
- $p_b$ & probability that female spawns & 0.90 &  XXXX 
+ $p_b$ & probability that female spawns & 0.90 &  XXXX  \\
+ 
       \end{tabular} } \label{table:parameters}
      \end{center}
      \end{table}    
@@ -116,7 +126,7 @@ where $\mu_g =  L_{\infty} \left(1-e^{-r_g} \right) + z(t)e^{-r_g}$ and $\sigma_
 \subsection{Fecundity}
 We define the fecundity kernel, 
 \begin{equation}\label{eq:fecundity}
-F(z',z) = p_b \mbox{egg}(z) \nu s_0(n(z,t))C_1(z', z)
+F(z', z) = p_b \, \mbox{egg}(z) \, \nu \, s_0(n(z,t)) \, C_1(z')
 \end{equation}
 where $p_b$ is the probability of reproducing, $\mbox{egg}(z)$ is the mean number of eggs produced, $\nu$ is the probability that an egg is viable, $s_0(n(z,t))$ is the density-dependent probability of surviving to age-1, and $C_1 (z')$ is the length distribution of new recruits at age-1 (when they are first censused).
 
@@ -127,80 +137,72 @@ We assume that the mean number of eggs produced by females of a certain length i
 
 The probability of survival of gizzard shad during their first year depends on many factors \citep{michaletz2010overwinter}.  The density of gizzard shad can effect the amount of resources available to age-0 fish and therefore effects the survival of age-0 fish. Consequently, we model the probability of survival of age-0 fish with the exponential function
 \begin{equation}\label{eq:s0}
-\mbox{s_0}(d(t)) = a_0 e^{-b_0 d}
+s_0(d(t)) = a_0 \, e^{-b_0 d(t)}
 \end{equation}
 where $a_0$ is the estimated intercept, $b_0$ the estimated decay rate, and $d(t)$ is the density at time $t$ of age-0 gizzard shad per 1000 m$^3$, 
-\[ d(t) = 10^{-3} \int_U^L \nu egg_z(z) n(t,z) \, dz \]  
+\[ d(t) = 10^{-3} \int_U^L \nu \, \mbox{egg}(z) \, n(t,z) \, dz. \]  
 
 And finally, now that we know how many eggs are produces, are viable age-0, and survive to age-1, we multiply the total number of age-0 with normal distribution of length,
 $ \ds C_1 (z') =  \mathrm{Normal PDF} (\mu_r, \sigma_r)$ where $\mu_r$ is the mean length of age-1 gizzard shad and $\sigma_r$ is the standard deviation. 
 
-\subsection{The Model} 
+\subsection{Dynamical Model} 
 In traditional matrix population models, the state vector is multiplied on the left by a matrix to project the current measurement to its future value.  In an integral projection model, the projection matrix is replaces by an integral kernel $K(z',z)$ that projects the population forward in time.  The population at time $t+1$ is the sum of the contributions from each individual alive at time $t$,
 \begin{equation}\label{eq:IPM}
 n(z',t+1) = \int_L^U K(z',z)n(z,t) \,dz,
 \end{equation}  
 where $K(z',z) = G(z',z) + F(z',z)$ and $[U,L]$ is the range of all possible lengths.
 
-\section{Methods and Analysis}
+\section{Methods}
 \subsection{Determination and Parameterization of Functions}
-The size-dependent probability of females spawning, $p_b(z)$, is estimated from a logistic regression with a logit link function scaled to maximum of 90\% (Figure \ref{fig:repro_prob}). We apply the inverse of the logit transformation to write this probability as $p_b(z) = (1+e^{-\nu_f})^{-1},$ where the estimated linear predictor $\nu_f = \alpha_s + \beta_s z$.  The mean eggs produced per female is gleaned from a linear approximation of the data from Jons \& Miranda (1997).  Specifically we assume that $\mbox{egg}(z) = \beta_e z$ for $z>140$ and zero otherwise(Figure \ref{eggs}). 
+\subsubsection{Growth and survival of adults}
+
+\subsubsection{Fecundity and recruitment}
+Maturity of female gizzard shad corresponds with lengths of approximately 140 mm and the number of eggs produced increase as the females increase in size \citep{jons1997ovarian}.  The mean eggs produced per female is described by a logistic function (see Figure 1) whose parameters are estimated from data provided in Figure 1a of \citep{jons1997ovarian}. 
+
+%Egg production is formed from the batch fecundity versus length relationship from Jons \& Miranda (1997)
+
+The survival to age-0 is assumed to be dependent on the density of age-0 gizzard shad (Figure \ref{fig:surv_age0}).  We estimated the exponential parameters using data provided in Table 2 in \citep{michaletz2010overwinter}. Once eggs transition to first-year individuals, survival increases with size.
 
 \begin{figure}
 \centering
-\begin{subfigure}[b]{.32\textwidth}
-  \includegraphics[width=\textwidth]{figures/Figure1.pdf}
-  \caption{}
-  \label{fig:repro_prob}
-\end{subfigure}
-\begin{subfigure}[b]{.32\textwidth}
-  \includegraphics[width=\textwidth]{figures/Figure2.pdf}
+\begin{subfigure}[b]{.43\textwidth}
+  \includegraphics[width=\textwidth]{figures/Figure1a.pdf}
   \caption{}
   \label{fig:eggs}
 \end{subfigure}
-\begin{subfigure}[b]{.32\textwidth}
-  \includegraphics[width=\textwidth]{figures/Figure3.pdf}
+\begin{subfigure}[b]{.43\textwidth}
+  \includegraphics[width=\textwidth]{figures/Figure1b.pdf}
   \caption{}
   \label{fig:surv_age0}
 \end{subfigure}
-\caption{(a) Graph of $p_b(z)$ (b) Graph of $\mbox{egg}(z)$, (c) Density-dependent survival of age-0 gizzard shard.}
+\caption{(a) Graph of $\mbox{egg}(z)$. Data from \citep{jons1997ovarian}.  (b) Graph of $s_0(d)$. Data from \citep{michaletz2010overwinter}. }
 \label{fig:fecundity}
 \end{figure}    
+%
+%To complete the recruitment process we assign a length to the recruited individuals by simulating a Gaussian random variable with mean $\mu_c$ and standard deviation $\sigma_c$.
 
-Egg production is formed from the batch fecundity versus length relationship from Jons \& Miranda (1997)
+\section{Analysis and Results}
+We numerically solved the integral model using the mid-point rule with large approximating matrices \citep{burden2005numerical}. The mid-point rule has been commonly used for integral projection models because of its simplicity and effectiveness \citep{ellner2006integral, ramula2009integral,  merow2014advancing}. During the course of model development, we explored different step sizes for the mid-point rule point rule and found that about 50 points provided numerically stable results. We integrated over lengths from 0.01 mm to 500 mm. The upper limit was chosen based upon numerical stability and consistency of the system (e.g., avoiding eviction or the loss of individuals due to numerical errors; \citep{williams2012avoiding}). 
 
+We coded our model in R (cite) and published scripts on JP github page XXXXXX.
 
-The survival to age-0 is assumed to be dependent on the density of age-0 gizzard shad (Figure \ref{fig:surv_age0}).  We assume that the probability of survival in age-0 fish is approximated by the exponentially decaying function
-\begin{equation}\label{eq:age0surv}
-s_0(n(z,t)) = A_s e^{-r_s d(n,t)}
-\end{equation}
-where the density $\ds d(n,t) = 10^{-3} \int_L^U \nu \, \mbox{egg}(z) p_b(z) n(z,t) \, dz$. 
-
-To complete the recruitment process we assign a length to the recruited individuals by simulating a Gaussian random variable with mean $\mu_c$ and standard deviation $\sigma_c$.
-
-\subsection{Simulations}
-
-We numerically solved our integral model using the mid-point rule with large approximating matrices (Burden and Faires, 2005). The mid-point rule has been commonly used for integral projection models because of its simplicity and effectiveness (Ellner and Rees, 2006; Ramula et al., 2009; Merow et al., 2014). During the course of model development, we explored different step sizes for the mid-point rule point rule and found that about XXXX points provided numerically stable results. We integrated over lengths from 0.01 mm to 500 mm. The upper limit was chosen based upon numerical stability and consistency of the system (e.g., avoiding ?eviction? or the loss of individuals due to numerical errors; Williams et al., 2012). 
-
-We coded our model as python and published scripts on JP bithub page XXXXXX.
-
-\subsubsection{Relative Growth}
+\subsubsection{Survival and Relative Growth}
 The dependence on survival of next generation of age-0 fish on the present density of age-0 fish strongly influences the density, at all ages, of gizzard shad within the population. When the fish density is large, there may be more fish at longer lengths and consequently a greater number of eggs produced.  More eggs leads to a higher density of age-0 fish and reflectively a reduction in the survival to age-1.  If this reduced survival continues for a few years, the overall density of fish may decline and there may not be as many larger fish reproducing.  If fewer eggs are spawned, there are less age-0 fish and the reduced density leads to a better survival probability.  For these years we would expect the overall density to increase.  This cycle of oscillation continues, reflected in our model by the time-dependent survival probability of age-0 (Figure \ref{fig:age0time}) and the relative growth rate 
 $$ \lambda(t) = \left. \int_L^U n(z,t+1) \, dz \middle/ \int_L^U n(z,t) \, dz \right.$$ (Figure \ref{fig:lambda}).
 
 \begin{figure}
 \centering
-\begin{subfigure}[b]{.45\textwidth}
-  \includegraphics[width=\textwidth]{figures/age0time.png}
+\begin{subfigure}[b]{.43\textwidth}
+  \includegraphics[width=\textwidth]{figures/Figure2a.pdf}
    \caption{}
   \label{fig:age0time}
 \end{subfigure}
-\begin{subfigure}[b]{.45\textwidth}
-   \includegraphics[width=\textwidth]{figures/lambda.png}
+\begin{subfigure}[b]{.43\textwidth}
+   \includegraphics[width=\textwidth]{figures/Figure2b.pdf}
      \caption{}
 \label{fig:lambda}
 \end{subfigure}
-\caption{(a) survival of age-0, (b) Relative growth rate of gizzard shad density}
+\caption{(a) Survival of age-0. (b) Relative growth rate of gizzard shad density}
 %\caption{(a) Graph of $p_b(z)$ (b) Graph of $\mbox{egg}(z)$, (c) Density-dependent survival of age-0 gizzard shard.}
 %\label{fig:fecundity}
 \end{figure}    
@@ -214,29 +216,126 @@ $$ \lambda(t) = \left. \int_L^U n(z,t+1) \, dz \middle/ \int_L^U n(z,t) \, dz \r
 %\end{figure}
 
 
-\section{Results}
-
 \subsection{Length Distribution Over Time} 
-We compared simulated length distributions with USGS LTRM data from La Grange reach. Selecting years with sample sizes greater than 200 observations limited the LTMR dataset to the years 2002 and 2005 (see Figure \ref{fig:LGdata}). In both years, the length of the sampled gizzard shad was organized into 11 bins of equal width $\Delta z = 30\mbox{mm}$ starting with 60-90mm.  We used the 2002 length distribution to define the initial distribution $\ds n(z_i,0)$, $i=1,...,11$, as the observed values per $\Delta z$. Solving equation (\ref{eq:IPM}) with parameter values summarized in Table \label{table:parameters} for 3 years resulted in a relative distribution that can be compared with the observed values in 2005 (Figure \ref{fig:LGdata_sim}).
+
+\subsubsection{Normal distribution of initial lengths}
+We started with a theoretical distributions of length that are centered at 
+
+Low/High Total Density Comparison
+Low/High Length Density Comparison
 
 \begin{figure}
 \centering
-\begin{subfigure}[b]{.45\textwidth}
-  \includegraphics[width=\textwidth]{figures/LGdata.png}
-     \caption{}
-  \label{fig:LGdata}
+\begin{subfigure}[b]{.3\textwidth}
+  \includegraphics[width=\textwidth]{figures/Figure4a.pdf}
+   \caption{}
+  \label{}
 \end{subfigure}
-\begin{subfigure}[b]{.45\textwidth}
-   \includegraphics[width=\textwidth]{figures/LGdata_sim.png}
+\begin{subfigure}[b]{.3\textwidth}
+   \includegraphics[width=\textwidth]{figures/Figure4b.pdf}
      \caption{}
-\label{fig:LGdata_sim}
+\label{}
 \end{subfigure}
-\caption{(a) Relative frequency of length from LTMR data in the years 2002 and 2005, (b) A comparison length frequency in 2005 from LTRM data and simulated frequency from the model with initial condition given by LTRM data in 2002.}
+\begin{subfigure}[b]{.3\textwidth}
+   \includegraphics[width=\textwidth]{figures/Figure4c.pdf}
+     \caption{}
+\label{}  
+\end{subfigure} \\
+\begin{subfigure}[b]{.3\textwidth}
+  \includegraphics[width=\textwidth]{figures/Figure4d.pdf}
+   \caption{}
+  \label{}
+\end{subfigure}
+\begin{subfigure}[b]{.3\textwidth}
+   \includegraphics[width=\textwidth]{figures/Figure4e.pdf}
+     \caption{}
+\label{}
+\end{subfigure}
+\begin{subfigure}[b]{.3\textwidth}
+   \includegraphics[width=\textwidth]{figures/Figure4f.pdf}
+     \caption{}
+\label{}  
+\end{subfigure} \\
+\begin{subfigure}[b]{.3\textwidth}
+  \includegraphics[width=\textwidth]{figures/Figure4g.pdf}
+   \caption{}
+  \label{}
+\end{subfigure}
+\begin{subfigure}[b]{.3\textwidth}
+   \includegraphics[width=\textwidth]{figures/Figure4h.pdf}
+     \caption{}
+\label{}
+\end{subfigure}
+\begin{subfigure}[b]{.3\textwidth}
+   \includegraphics[width=\textwidth]{figures/Figure4i.pdf}
+     \caption{}
+\label{}  
+\end{subfigure} 
+\caption{}
 %\caption{(a) Graph of $p_b(z)$ (b) Graph of $\mbox{egg}(z)$, (c) Density-dependent survival of age-0 gizzard shard.}
 %\label{fig:fecundity}
 \end{figure}    
 
-\subsection{Total Population Size vs. Time}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{.3\textwidth}
+  \includegraphics[width=\textwidth]{figures/Figure5a.pdf}
+   \caption{}
+  \label{}
+\end{subfigure}
+\begin{subfigure}[b]{.3\textwidth}
+   \includegraphics[width=\textwidth]{figures/Figure5b.pdf}
+     \caption{}
+\label{}
+\end{subfigure}
+\begin{subfigure}[b]{.3\textwidth}
+   \includegraphics[width=\textwidth]{figures/Figure5c.pdf}
+     \caption{}
+\label{}  
+\end{subfigure} \\
+\begin{subfigure}[b]{.3\textwidth}
+  \includegraphics[width=\textwidth]{figures/Figure5d.pdf}
+   \caption{}
+  \label{}
+\end{subfigure}
+\begin{subfigure}[b]{.3\textwidth}
+   \includegraphics[width=\textwidth]{figures/Figure5e.pdf}
+     \caption{}
+\label{}
+\end{subfigure}
+\begin{subfigure}[b]{.3\textwidth}
+   \includegraphics[width=\textwidth]{figures/Figure5f.pdf}
+     \caption{}
+\label{}  
+\end{subfigure}
+%\caption{(a) Graph of $p_b(z)$ (b) Graph of $\mbox{egg}(z)$, (c) Density-dependent survival of age-0 gizzard shard.}
+%\label{fig:fecundity}
+\end{figure}    
+
+
+
+\subsubsection{Length Frequencies comparison in La Grange Reach}
+
+
+We compared simulated length distributions with USGS LTRM data from La Grange reach. DESCRIBE LA GRANGE REACH.  WHY THERE?  Selecting years with sample sizes greater than 200 observations limited the LTMR dataset to the years 2002 and 2005. In both years, the length of the sampled gizzard shad was organized into 11 bins of equal width $\Delta z = 30\mbox{mm}$ starting with 60-90mm.  We used the 2002 length distribution to define the initial distribution $\ds n(z_i,0)$, $i=1,...,11$, as the observed values per $\Delta z$. Solving equation (\ref{eq:IPM}) with parameter values summarized in Table \label{table:parameters} for 3 years resulted in a relative distribution that can be compared with the observed values in 2005 (Figure \ref{fig:LGdata_sim}).
+
+\begin{figure}
+\centering
+%\begin{subfigure}[b]{.45\textwidth}
+%  \includegraphics[width=\textwidth]{figures/LGdata.png}
+%     \caption{}
+%  \label{fig:LGdata}
+%\end{subfigure}
+%\begin{subfigure}[b]{.45\textwidth}
+   \includegraphics[width=0.55\textwidth]{figures/Figure3.pdf}
+\label{fig:LGdata_sim}
+%\end{subfigure}
+\caption{A comparison length frequency in 2005 from LTRM data and simulated frequency from the model with initial condition given by LTRM data in 2002.}
+
+\end{figure}    
+
+\subsection{Total Population Size over Time}
 Graphs of n
 
 total n vs t and compare with Pool 26

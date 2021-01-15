@@ -1,4 +1,4 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -12,17 +12,49 @@ D.~D. Aday, R.~J.~H. Hoxmeier, and D.~H. Wahl.
 \newblock \emph{Transactions of the American Fisheries Society}, 132\penalty0
   (1):\penalty0 47--56, 2003.
 
+\bibitem[Bodola(1955)]{bodola1955life}
+A.~Bodola.
+\newblock \emph{The life history of the gizzard shad, Dorosoma cepedianum, in
+  western Lake Erie}.
+\newblock PhD thesis, Doctoral dissertation. Ohio State University, Columbus,
+  1955.
+
+\bibitem[Bolker(2008)]{bolker2008ecological}
+B.~M. Bolker.
+\newblock \emph{Ecological models and data in R}.
+\newblock Princeton University Press, 2008.
+
+\bibitem[Catalano and Allen(2010)]{catalano2010size}
+M.~J. Catalano and M.~S. Allen.
+\newblock A size-and age-structured model to estimate fish recruitment, growth,
+  mortality, and gear selectivity.
+\newblock \emph{Fisheries Research}, 105\penalty0 (1):\penalty0 38--45, 2010.
+
 \bibitem[Ellner et~al.(2016)Ellner, Childs, Rees, et~al.]{ellner2016data}
 S.~P. Ellner, D.~Z. Childs, M.~Rees, et~al.
 \newblock Data-driven modelling of structured populations.
 \newblock \emph{A practical guide to the Integral Projection Model. Cham:
   Springer}, 2016.
 
+\bibitem[Erickson et~al.(2017)Erickson, Eager, Brey, Hansen, and
+  Kocovsky]{erickson2017integral}
+R.~A. Erickson, E.~A. Eager, M.~K. Brey, M.~J. Hansen, and P.~M. Kocovsky.
+\newblock An integral projection model with yy-males and application to
+  evaluating grass carp control.
+\newblock \emph{Ecological Modelling}, 361:\penalty0 14--25, 2017.
+
 \bibitem[Jester et~al.(1972)Jester, Jensen, et~al.]{jester1972life}
 D.~B. Jester, B.~L. Jensen, et~al.
-\newblock Life history and ecology of the gizzard shad, dorosoma cepedianum (le
-  sueur) with reference to elephant butte lake.
+\newblock Life history and ecology of the gizzard shad, \emph{Dorosoma
+  cepedianum} (le sueur) with reference to elephant butte lake.
 \newblock 1972.
+
+\bibitem[Jons and Miranda(1997)]{jons1997ovarian}
+G.~Jons and L.~Miranda.
+\newblock Ovarian weight as an index of fecundity, maturity, and spawning
+  periodicity.
+\newblock \emph{Journal of Fish Biology}, 50\penalty0 (1):\penalty0 150--156,
+  1997.
 
 \bibitem[Mather et~al.(1995)Mather, Vanni, Wissing, Davis, and
   Schaus]{mather1995regeneration}
@@ -40,6 +72,13 @@ C.~Merow, J.~P. Dahlgren, C.~J.~E. Metcalf, D.~Z. Childs, M.~E. Evans,
   practical guide.
 \newblock \emph{Methods in Ecology and Evolution}, 5\penalty0 (2):\penalty0
   99--110, 2014.
+
+\bibitem[Michaletz(2010)]{michaletz2010overwinter}
+P.~H. Michaletz.
+\newblock Overwinter survival of age-0 gizzard shad in missouri reservoirs
+  spanning a productivity gradient: roles of body size and winter severity.
+\newblock \emph{Transactions of the American Fisheries Society}, 139\penalty0
+  (1):\penalty0 241--256, 2010.
 
 \bibitem[Pierce et~al.(1981)Pierce, Wissing, and Megrey]{pierce1981aspects}
 R.~J. Pierce, T.~E. Wissing, and B.~A. Megrey.
